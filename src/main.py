@@ -23,12 +23,17 @@ move = StringVar()  # global
 from PIL import Image, ImageTk
 
 def run():
-    if board.is_checkmate():
-        print("Checkmate")
+
+    if board.is_game_over():
+        if board.is_checkmate():
+            print("Checkmate")
+        else:
+            print("Game over")
         return
-    st_in = parse_to_valid_chess_move(move.get())
-    mov = chess.Move.null() if st_in.lower() == "skip" else chess.Move.from_uci(st_in)
-    if mov == chess.Move.null() or mov in board.legal_moves:
+    
+    mov = chess.Move.null()
+    if not (mov := parse_to_valid_chess_move(move.get())) or board.is_legal(mov):
+        if not mov: print("Skipped turn")
         board.push(mov)
         __create_board_png()
         global _pimg
