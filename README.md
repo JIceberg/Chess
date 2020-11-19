@@ -1,5 +1,5 @@
 # Chess
-![CI](https://github.com/JIceberg/Chess/workflows/Linting/badge.svg)
+![Linting](https://github.com/JIceberg/Chess/workflows/Linting/badge.svg)
 
 A simple chess game made for my friend [Vedic](https://www.linkedin.com/in/vedic-panda-75a579187).
 
